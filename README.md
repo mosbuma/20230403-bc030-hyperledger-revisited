@@ -33,9 +33,13 @@ cd ~/fabric-samples/test-network
 
 ./network.sh down
 
+### create channel
+
 ./network.sh up createChannel -c mychannel -ca
 
 ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript/ -ccl javascript
+
+### run node.js code
 
 cd ~/fabric-samples/asset-transfer-basic/application-javascript
 
@@ -120,4 +124,3 @@ peer lifecycle chaincode querycommitted --channelID mychannel --name basic --caf
 ## invoke chaincode
 
 peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
-# 20230403-bc030-hyperledger-revisited
